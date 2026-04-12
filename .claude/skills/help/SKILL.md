@@ -103,18 +103,27 @@ When this skill is invoked:
 
 6. **If a topic argument is provided**, show focused help:
 
-   **`/help agents`** — List all 28 agents grouped by tier with one-line descriptions.
+   **`/help agents`** — List all 51 agents grouped by tier with one-line descriptions.
    Show how to talk to them: `@agent-name your question here`
 
-   **`/help skills`** — List all skills grouped by category with descriptions.
-   Show how to run them: `/skill-name [arguments]`
+   **`/help skills`** — List all 49 skills grouped by category with descriptions:
+   - **Setup & Planning**: /start, /brainstorm, /help, /define-features, /wireframe, /sprint-plan
+   - **Architecture**: /create-architecture, /design-api, /design-database, /design-components, /setup-routing, /setup-theme
+   - **Frontend**: /create-page, /create-component, /create-form, /create-list, /setup-state, /add-animation
+   - **Backend**: /create-endpoint, /create-model, /create-migration, /create-middleware, /setup-auth, /setup-graphql, /setup-websocket, /setup-redis, /setup-email, /setup-payments, /setup-storage
+   - **Testing & Quality**: /write-tests, /code-review, /audit-security, /audit-performance, /audit-accessibility
+   - **SEO & i18n**: /setup-seo, /setup-i18n, /setup-analytics, /setup-monitoring
+   - **Infrastructure**: /setup-docker, /setup-cicd, /setup-monorepo, /setup-edge, /deploy, /build
+   - **Docs & Team**: /generate-docs, /create-readme, /create-changelog, /team-feature, /team-fullstack
 
    **`/help workflow`** — Show the recommended full workflow from idea to deployment:
    ```
-   Idea → /brainstorm → /start → /create-architecture → /design-api →
-   /design-database → /create-page → /create-endpoint → /create-model →
-   /setup-auth → /write-tests → /code-review → /audit-security →
-   /setup-docker → /setup-cicd → /deploy
+   1. PLAN       /brainstorm → /define-features → /create-architecture
+   2. DESIGN     /wireframe → /setup-theme → /design-api → /design-database
+   3. BUILD      /create-page → /create-component → /create-endpoint
+   4. INTEGRATE  /setup-auth → /setup-email → /setup-payments → /setup-i18n
+   5. TEST       /write-tests → /audit-performance → /audit-accessibility
+   6. RELEASE    /setup-cicd → /build → /deploy
    ```
 
 7. **Always end with a reminder**:
