@@ -249,6 +249,21 @@ Once inside Claude Code:
 
 Or ask `/help` at any point to see where you are and what to do next.
 
+## Guided Workflow (Orchestration Layer)
+
+The studio is designed to feel like a guided game — you're never left staring at a blank prompt wondering what to run next.
+
+- **Handoff menus** — every skill ends with a numbered "what's next?" block so you can pick the next step by number or stay and chat.
+- **MVP anchor** — `/start` and `/brainstorm` write a one-line MVP to `.claude/session/mvp.md`. It shows up in every skill's Status block so the north star is always visible.
+- **Session breadcrumbs** — each skill appends a timestamped line to `.claude/session/active.md`, giving you a running log of what's been done.
+- **SessionStart hook** — every time you open Claude Code in this directory, the hook surfaces your MVP, review mode, and the last 40 lines of breadcrumbs so context is never lost.
+- **Review gates** — pick a mode during `/start`:
+  - `solo` — no gates, move fast
+  - `lean` — directors review at phase boundaries (architecture, build, deploy)
+  - `full` — directors review after every meaningful skill
+
+At phase-boundary skills, the designated director (project-architect, tech-lead, or product-owner) is auto-spawned to review before the handoff. See `.claude/docs/review-gates.md` for the full trigger matrix.
+
 ## Examples
 
 ### Build a SaaS with Next.js + Stripe
@@ -295,12 +310,19 @@ Or ask `/help` at any point to see where you are and what to do next.
 │   ├── brainstorm/SKILL.md
 │   ├── setup-payments/SKILL.md
 │   └── ...46 more
-├── hooks/                # Validation hooks
+├── hooks/                # Validation + session hooks
 │   ├── validate-commit.sh
-│   └── validate-web-assets.sh
+│   ├── validate-web-assets.sh
+│   └── session-start.sh   # Surfaces MVP + breadcrumbs on load
 ├── docs/                 # Studio documentation
 │   ├── agent-roster.md
-│   └── quick-start.md
+│   ├── quick-start.md
+│   ├── handoff-template.md  # Canonical end-of-skill format
+│   └── review-gates.md      # Trigger matrix for director reviews
+├── session/              # Runtime state (auto-managed)
+│   ├── mvp.md             # One-line MVP anchor
+│   ├── active.md          # Timestamped breadcrumbs
+│   └── review-mode.txt    # solo / lean / full
 └── settings.json         # Permissions and hook config
 CLAUDE.md                 # Studio configuration
 README.md                 # This file
