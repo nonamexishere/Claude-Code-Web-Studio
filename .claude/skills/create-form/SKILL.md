@@ -21,6 +21,17 @@ When this skill is invoked:
 
 3. **Include field types**: text, email, password, number, select, checkbox, textarea, file upload, date picker.
 
-4. **Suggest next steps**:
-   - `/create-endpoint` to create the API endpoint this form submits to
-   - `/write-tests` to test form validation logic
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-form — [YYYY-MM-DD HH:MM]
+     - Action: scaffolded [form-name] with validation + submission
+     - Recommended next: /create-endpoint
+     ```
+   - Render the handoff block with:
+     - `/create-endpoint` — build the API endpoint this form submits to *(recommended)*
+     - `/write-tests` — test form validation and submission logic
+     - `/create-component` — extract reusable field components
+     - `/audit-accessibility` — check a11y of form labels and errors
+     - `@frontend-lead` — discuss form UX or state choices

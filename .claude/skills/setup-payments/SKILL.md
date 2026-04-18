@@ -50,6 +50,17 @@ When this skill is invoked:
    - No client-side price manipulation
    - PCI compliance (use hosted checkout)
 
-4. **Suggest next steps**:
-   1. "Run `/setup-email` for payment receipt emails"
-   2. "Run `/create-page pricing` for the pricing page"
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-payments — [YYYY-MM-DD HH:MM]
+     - Action: wired [provider] for [type] with [features]
+     - Recommended next: /create-page pricing
+     ```
+   - Render the handoff block with:
+     - `/create-page pricing` — build the pricing/plans page *(recommended)*
+     - `/setup-email` — send receipts, invoices, and dunning emails
+     - `/audit-security` — verify webhook verification and server-side price checks
+     - `/write-tests` — cover subscription state transitions and webhooks
+     - `@security-lead` — review PCI surface and webhook idempotency

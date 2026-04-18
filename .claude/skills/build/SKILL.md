@@ -3,7 +3,7 @@ name: build
 description: "Build the web application for production. Analyzes bundle size, optimizes assets, and verifies the build output."
 argument-hint: "[target: dev|staging|production]"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash, AskUserQuestion, Task
 ---
 
 When this skill is invoked:
@@ -40,7 +40,16 @@ When this skill is invoked:
    - Unused exports / dead code warnings
    - Build time report
 
-6. **Suggest next steps**:
-   1. "Run `/deploy` to deploy this build"
-   2. "Run `/audit-performance` if bundle size is concerning"
-   3. "Run `/setup-cicd` to automate builds"
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /build — [YYYY-MM-DD HH:MM]
+     - Action: built [target], bundle [size], [X warnings]
+     - Recommended next: /deploy or /audit-performance
+     ```
+   - Render the handoff block. Pick the recommended based on results:
+     - If bundle is healthy and build is clean: `/deploy` *(recommended)*
+     - If bundle is concerning: `/audit-performance` first
+     - If warnings present: `/code-review` before deploying
+   - Always include: `/deploy`, `/audit-performance`, `/setup-cicd`, `@devops-lead`

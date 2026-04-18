@@ -44,6 +44,17 @@ When this skill is invoked:
 
 4. **Generate package templates** with proper package.json, tsconfig, exports.
 
-5. **Suggest next steps**:
-   1. "Talk to `@monorepo-specialist` for architecture questions"
-   2. "Run `/setup-cicd` to configure CI for the monorepo"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-monorepo — [YYYY-MM-DD HH:MM]
+     - Action: configured [tool] monorepo with [N] apps / [M] packages
+     - Recommended next: /setup-cicd
+     ```
+   - Render the handoff block with:
+     - `/setup-cicd` — configure CI with affected-only builds *(recommended)*
+     - `/create-architecture` — refresh architecture doc for the monorepo layout
+     - `/create-component` — start building the shared UI package
+     - `/setup-docker` — multi-app Dockerfile and compose
+     - `@monorepo-specialist` — discuss advanced caching and task graph

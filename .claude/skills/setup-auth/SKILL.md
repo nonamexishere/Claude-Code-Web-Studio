@@ -3,7 +3,7 @@ name: setup-auth
 description: "Configure authentication: JWT, OAuth, session, or third-party provider."
 argument-hint: "[strategy: jwt|session|oauth|clerk|supabase]"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebSearch, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebSearch, AskUserQuestion, Task
 ---
 
 When this skill is invoked:
@@ -51,6 +51,17 @@ When this skill is invoked:
    - [ ] CSRF protection enabled
    - [ ] Rate limiting on auth endpoints
 
-5. **Suggest next steps**:
-   - `/add-auth-ui` to create login/register pages
-   - `/audit-security` to verify security posture
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-auth — [YYYY-MM-DD HH:MM]
+     - Action: wired [strategy] auth + middleware + endpoints
+     - Recommended next: /audit-security
+     ```
+   - Render the handoff block with:
+     - `/audit-security` — verify auth security posture now, not after ship *(recommended)*
+     - `/create-form LoginForm` — build the login UI
+     - `/setup-email` — wire email verification / password reset
+     - `/write-tests` — cover auth endpoints and middleware
+     - `@security-lead` — review token handling and attack surface

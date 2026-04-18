@@ -49,6 +49,19 @@ When this skill is invoked:
    - Handles click/interaction events
    - Accessibility: has proper ARIA roles
 
-6. **Report what was created** and suggest:
-   - How to import and use the component
-   - `/write-tests [ComponentName]` for more thorough tests
+6. **Report what was created** and show how to import/use it.
+
+7. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-component — [YYYY-MM-DD HH:MM]
+     - Action: scaffolded [ComponentName] with variants/tests
+     - Recommended next: /write-tests
+     ```
+   - Render the handoff block with:
+     - `/write-tests [ComponentName]` — cover edge cases and interactions *(recommended)*
+     - `/create-page` — use this component on a page
+     - `/add-animation` — add transitions or micro-interactions
+     - `/code-review src/components/[ComponentName]` — review before moving on
+     - `@frontend-lead` — discuss reusability or a11y tradeoffs

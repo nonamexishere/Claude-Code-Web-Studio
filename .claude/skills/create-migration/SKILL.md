@@ -52,6 +52,17 @@ When this skill is invoked:
    - Data migration needed? (backfill strategy)
    - Nullable vs default for new columns (avoid NOT NULL without default on existing table)
 
-5. **Suggest next steps**:
-   1. "Run `/create-model` to update application models"
-   2. "Run `/design-database` to review full schema"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-migration — [YYYY-MM-DD HH:MM]
+     - Action: generated migration [name]
+     - Recommended next: /create-model
+     ```
+   - Render the handoff block with:
+     - `/create-model` — update application models to match *(recommended)*
+     - `/create-endpoint` — build endpoints on top of the new schema
+     - `/design-database` — re-check full schema for consistency
+     - `/write-tests` — add data-layer tests
+     - `@database-lead` — review migration for safety (large tables, locks)

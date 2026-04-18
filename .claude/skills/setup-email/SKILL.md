@@ -38,6 +38,17 @@ When this skill is invoked:
 
 3. **Write files** to `src/email/` or `src/lib/email/`.
 
-4. **Suggest next steps**:
-   1. "Run `/setup-auth` to integrate email verification with auth"
-   2. "Run `/setup-redis` for email queue"
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-email — [YYYY-MM-DD HH:MM]
+     - Action: wired [provider] email with [templates] + [types]
+     - Recommended next: /setup-auth
+     ```
+   - Render the handoff block with:
+     - `/setup-auth` — integrate email verification / password reset flows *(recommended)*
+     - `/setup-redis` — queue emails for non-blocking send
+     - `/create-form` — build email-related forms (subscribe, contact)
+     - `/write-tests` — cover template rendering and send logic
+     - `@backend-lead` — discuss deliverability and bounce handling

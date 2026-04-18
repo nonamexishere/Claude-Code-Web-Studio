@@ -49,6 +49,17 @@ When this skill is invoked:
 
 4. **Generate test file** for the middleware.
 
-5. **Suggest next steps**:
-   1. "Run `/create-endpoint` to apply this middleware"
-   2. "Run `/write-tests` to test middleware edge cases"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-middleware — [YYYY-MM-DD HH:MM]
+     - Action: added [middleware-name] middleware
+     - Recommended next: /write-tests
+     ```
+   - Render the handoff block with:
+     - `/write-tests` — cover middleware edge cases *(recommended)*
+     - `/create-endpoint` — apply this middleware to a new endpoint
+     - `/audit-security` — review if this is an auth/validation middleware
+     - `/code-review` — review the middleware logic
+     - `@backend-lead` — discuss middleware ordering or error handling

@@ -63,6 +63,16 @@ When this skill is invoked:
    - Fix code examples
    - Automated testing tool recommendations (axe, pa11y, Lighthouse)
 
-4. **Suggest next steps**:
-   1. "Talk to `@accessibility-specialist` for remediation help"
-   2. "Test with screen reader (VoiceOver on Mac, NVDA on Windows)"
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /audit-accessibility — [YYYY-MM-DD HH:MM]
+     - Action: WCAG 2.2 audit of [scope], found [X critical / Y major]
+     - Recommended next: [depends on findings]
+     ```
+   - Render the handoff block. Pick the recommended option based on findings:
+     - If critical issues: fix them now; offer `@accessibility-specialist` for tricky ARIA cases
+     - If major only: `/code-review` to land the fixes and verify
+     - If clean: `/audit-performance` to check the next axis
+   - Always include: `/code-review`, `/audit-performance`, `@accessibility-specialist`, `@ux-lead`

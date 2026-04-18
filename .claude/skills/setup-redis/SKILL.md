@@ -45,6 +45,17 @@ When this skill is invoked:
 
 4. **Docker Compose** for local Redis development.
 
-5. **Suggest next steps**:
-   1. "Talk to `@redis-specialist` for advanced patterns"
-   2. "Run `/setup-websocket` for real-time with Redis pub/sub"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-redis — [YYYY-MM-DD HH:MM]
+     - Action: configured Redis on [provider] for [use cases]
+     - Recommended next: /create-middleware
+     ```
+   - Render the handoff block with:
+     - `/create-middleware rate-limit` — add a rate-limit middleware backed by Redis *(recommended)*
+     - `/setup-websocket` — wire real-time messaging with pub/sub
+     - `/setup-auth` — move sessions to Redis
+     - `/write-tests` — cover cache invalidation logic
+     - `@redis-specialist` — discuss advanced patterns (Lua scripts, streams)

@@ -46,6 +46,17 @@ When this skill is invoked:
 
 4. **Write files** to `src/realtime/` or `src/lib/socket/`.
 
-5. **Suggest next steps**:
-   1. "Talk to `@websocket-specialist` for scaling patterns"
-   2. "Run `/setup-redis` for pub/sub scaling"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-websocket — [YYYY-MM-DD HH:MM]
+     - Action: wired [technology] for [use case]
+     - Recommended next: /setup-redis
+     ```
+   - Render the handoff block with:
+     - `/setup-redis` — enable pub/sub scaling across instances *(recommended)*
+     - `/create-component` — build connection status and live-update UI
+     - `/setup-auth` — authenticate socket connections
+     - `/write-tests` — cover reconnection and message handling
+     - `@websocket-specialist` — discuss scaling patterns and backpressure

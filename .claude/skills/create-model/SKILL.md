@@ -30,6 +30,17 @@ When this skill is invoked:
    - **Django**: Model class in models.py + migration command
    - **Sequelize**: Model definition + migration file
 
-5. **Suggest next steps**:
-   - `/create-endpoint` to build API endpoints for this model
-   - Run the migration command
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-model — [YYYY-MM-DD HH:MM]
+     - Action: generated [ModelName] model + migration
+     - Recommended next: /create-endpoint
+     ```
+   - Render the handoff block with:
+     - `/create-endpoint` — build API endpoints for this model *(recommended)*
+     - `/create-migration` — add follow-up schema changes
+     - `/design-api` — design API contracts for this model
+     - `/write-tests` — cover model validation and relations
+     - `@database-lead` — review schema choices

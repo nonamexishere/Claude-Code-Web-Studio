@@ -26,3 +26,18 @@ When this skill is invoked:
    - License
 
 3. **Write to project root** as `README.md`.
+
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-readme — [YYYY-MM-DD HH:MM]
+     - Action: generated README.md
+     - Recommended next: /generate-docs
+     ```
+   - Render the handoff block with:
+     - `/generate-docs` — expand into API and architecture docs *(recommended)*
+     - `/create-changelog` — add release notes
+     - `/build` — verify the setup steps actually work
+     - `/deploy` — ship now that docs reflect the project
+     - `@technical-writer` — polish README tone and structure

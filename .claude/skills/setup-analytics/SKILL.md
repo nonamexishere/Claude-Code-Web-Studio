@@ -37,6 +37,17 @@ When this skill is invoked:
 
 4. **Write files** to `src/analytics/` or `src/lib/analytics/`.
 
-5. **Suggest next steps**:
-   1. "Run `/setup-seo` to optimize search visibility"
-   2. "Run `/setup-monitoring` to add error and performance monitoring"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-analytics — [YYYY-MM-DD HH:MM]
+     - Action: wired [provider] with [privacy approach]
+     - Recommended next: /setup-monitoring
+     ```
+   - Render the handoff block with:
+     - `/setup-monitoring` — pair analytics with error/perf monitoring *(recommended)*
+     - `/setup-seo` — optimize the traffic you're about to measure
+     - `/audit-performance` — baseline Core Web Vitals to compare against
+     - `/create-component ConsentBanner` — refine the cookie consent UX
+     - `@backend-lead` — discuss event schema and downstream pipelines

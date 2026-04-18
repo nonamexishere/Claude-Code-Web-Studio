@@ -42,6 +42,17 @@ When this skill is invoked:
    - Custom scalars (Date, JSON, etc.)
    - Test setup with mock schema
 
-6. **Suggest next steps**:
-   1. "Run `/create-endpoint` to add queries and mutations"
-   2. "Talk to `@graphql-specialist` for schema design advice"
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-graphql — [YYYY-MM-DD HH:MM]
+     - Action: wired GraphQL [side] with [server/client] stack
+     - Recommended next: /design-api
+     ```
+   - Render the handoff block with:
+     - `/design-api` — flesh out schema, types, and queries *(recommended)*
+     - `/create-endpoint` — add resolver-backed queries and mutations
+     - `/setup-auth` — wire auth into GraphQL context
+     - `/write-tests` — add resolver and query tests
+     - `@graphql-specialist` — schema design and N+1 prevention advice

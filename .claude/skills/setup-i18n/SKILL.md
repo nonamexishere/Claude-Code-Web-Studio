@@ -52,6 +52,17 @@ When this skill is invoked:
    - SEO: hreflang meta tags, localized sitemap
    - Date/number formatting utilities using Intl API
 
-5. **Suggest next steps**:
-   1. "Run `/setup-seo` to add hreflang and localized meta"
-   2. "Talk to `@i18n-specialist` for translation workflow"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-i18n — [YYYY-MM-DD HH:MM]
+     - Action: wired i18n for [languages] with [routing strategy]
+     - Recommended next: /setup-seo
+     ```
+   - Render the handoff block with:
+     - `/setup-seo` — add hreflang tags and localized meta *(recommended)*
+     - `/create-component LocaleSwitcher` — build the language switcher UI
+     - `/audit-accessibility` — verify RTL and screen-reader locale switching
+     - `/create-page` — build locale-aware pages
+     - `@i18n-specialist` — discuss translation workflow and tooling

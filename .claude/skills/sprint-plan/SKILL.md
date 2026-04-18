@@ -37,4 +37,14 @@ When this skill is invoked:
 
 5. **Write to** `production/sprints/sprint-[N].md`
 
-6. **Suggest**: Start with the highest-priority task that has no dependencies.
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /sprint-plan — [YYYY-MM-DD HH:MM]
+     - Action: planned sprint-[N] with [X] tasks ([Y] P0/P1)
+     - Progress: 0/[X] tasks done
+     - Recommended next: [first task]
+     ```
+   - Render the handoff block. The recommended option is the highest-priority task with no dependencies — phrase it as the concrete skill (`/create-endpoint`, `/create-page`, etc.) pointing at that task.
+   - Include alternatives: next 2–3 highest-priority tasks, plus `@project-architect` for review of the plan.

@@ -51,6 +51,17 @@ When this skill is invoked:
    - GPU compositing hints
    - 60fps verification
 
-5. **Suggest next steps**:
-   1. "Run `/audit-performance` to verify animation performance"
-   2. "Talk to `@animation-specialist` for complex animations"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /add-animation — [YYYY-MM-DD HH:MM]
+     - Action: added [type] animation to [target] using [library]
+     - Recommended next: /audit-performance
+     ```
+   - Render the handoff block with:
+     - `/audit-performance` — verify 60fps and reduced-motion compliance *(recommended)*
+     - `/audit-accessibility` — check reduced-motion and focus handling
+     - `/create-component` — extract the animation into a reusable component
+     - `/code-review` — review animation code
+     - `@animation-specialist` — advanced motion design and choreography

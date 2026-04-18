@@ -41,7 +41,17 @@ When this skill is invoked:
    - Font loading strategy (display: swap, preload)
    - Core Web Vitals checklist
 
-5. **Suggest next steps**:
-   1. "Run `/audit-performance` to check Core Web Vitals"
-   2. "Run `/setup-analytics` to track SEO performance"
-   3. "Talk to `@seo-specialist` for keyword strategy"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-seo — [YYYY-MM-DD HH:MM]
+     - Action: added meta tags, OG, JSON-LD for [site type]
+     - Recommended next: /audit-performance
+     ```
+   - Render the handoff block with:
+     - `/audit-performance` — check Core Web Vitals now, before traffic *(recommended)*
+     - `/setup-analytics` — wire tracking for SEO-driven traffic
+     - `/setup-i18n` — if multiple languages, add hreflang
+     - `/create-page` — build key landing pages with proper meta
+     - `@seo-specialist` — discuss keyword strategy and content plan

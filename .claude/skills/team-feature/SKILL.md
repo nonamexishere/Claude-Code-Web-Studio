@@ -51,3 +51,18 @@ When this skill is invoked:
 3. **Execute each phase**, asking for user confirmation between phases.
 
 4. **Generate feature summary** at the end with what was built and any follow-ups.
+
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /team-feature — [YYYY-MM-DD HH:MM]
+     - Action: built [feature-name] across [N] phases
+     - Recommended next: /code-review
+     ```
+   - Render the handoff block with:
+     - `/code-review` — comprehensive review across all layers *(recommended)*
+     - `/audit-security` — security check for the new attack surface
+     - `/sprint-plan` — plan what ships next
+     - `/write-tests` — fill any remaining test gaps
+     - `@tech-lead` — sign off on the feature end-to-end

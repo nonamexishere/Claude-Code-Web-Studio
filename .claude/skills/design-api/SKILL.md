@@ -3,7 +3,7 @@ name: design-api
 description: "Design REST or GraphQL API schema with endpoints, types, validation rules, and example requests/responses."
 argument-hint: "[resource or feature, e.g. 'user management' or 'REST']"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Write, Edit, AskUserQuestion, Task
 ---
 
 When this skill is invoked:
@@ -41,7 +41,17 @@ When this skill is invoked:
 
 6. **Optionally generate OpenAPI spec** at `design/openapi.yaml` for REST APIs.
 
-7. **Suggest next steps**:
-   - `/create-endpoint [resource]` to implement endpoints
-   - `/design-database` to align data model with API
-   - `/setup-auth` to implement authentication
+7. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /design-api — [YYYY-MM-DD HH:MM]
+     - Action: wrote design/api-spec.md ([N] endpoints)
+     - Recommended next: /create-endpoint
+     ```
+   - Render the handoff block with:
+     - `/create-endpoint [resource]` — implement the first endpoint from the spec *(recommended)*
+     - `/design-database` — align data model with API shapes
+     - `/setup-auth` — wire auth before protected endpoints
+     - `/write-tests` — draft contract tests
+     - `@backend-lead` — review API design choices

@@ -44,6 +44,17 @@ When this skill is invoked:
    - Auth token verification
    - Edge caching strategies
 
-4. **Suggest next steps**:
-   1. "Talk to `@edge-specialist` for edge architecture"
-   2. "Run `/setup-redis` for edge caching with Upstash"
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-edge — [YYYY-MM-DD HH:MM]
+     - Action: wired [platform] for [use case], storage=[option]
+     - Recommended next: /deploy
+     ```
+   - Render the handoff block with:
+     - `/deploy` — ship the edge function to production *(recommended)*
+     - `/setup-redis` — add edge-compatible caching (Upstash)
+     - `/create-middleware` — add edge middleware (auth, geo)
+     - `/audit-performance` — measure the edge latency benefit
+     - `@edge-specialist` — discuss edge architecture and cold start

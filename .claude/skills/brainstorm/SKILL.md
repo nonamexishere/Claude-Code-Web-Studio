@@ -3,7 +3,7 @@ name: brainstorm
 description: "Guided product ideation — from a rough idea to a structured product specification. Uses professional product thinking frameworks."
 argument-hint: "[idea or topic, or 'open']"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, AskUserQuestion, Task
 ---
 
 When this skill is invoked:
@@ -86,8 +86,31 @@ Based on features, recommend:
 Generate `design/product-spec.md` with all sections filled in.
 Ask for write approval before creating the file.
 
-Suggest next steps:
-1. `/create-architecture` — system architecture
-2. `/design-api` — API contract design
-3. `/design-database` — data model
-4. `/start [project-name]` — scaffold the project
+---
+
+### Phase 6: Anchor the MVP
+
+After the spec is written, distill the MVP into a **single sentence** and write it to `.claude/session/mvp.md` (create the directory if missing). Overwrite any prior placeholder. No heading, no frontmatter, just the sentence. Example:
+
+`A dashboard where small teams define tracked metrics and see a live chart per metric — nothing else.`
+
+Then confirm to the user in one line: "MVP anchored: *[sentence]*. Future skills will surface this in their Status block."
+
+---
+
+### Final step — handoff
+
+Follow `.claude/docs/handoff-template.md`.
+
+1. Append a breadcrumb to `.claude/session/active.md`:
+   ```
+   ## /brainstorm — [YYYY-MM-DD HH:MM]
+   - Action: produced product spec for [concept name]
+   - Recommended next: /create-architecture
+   ```
+2. Render the handoff block with these recommendations:
+   - `/create-architecture` — design the system now that the product is defined *(recommended)*
+   - `/design-database` — model data directly if product is data-heavy
+   - `/design-api` — design contracts if API-first
+   - `/define-features` — refine feature priorities before coding
+   - `@project-architect` — discuss architecture tradeoffs

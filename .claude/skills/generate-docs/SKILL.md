@@ -31,4 +31,17 @@ When this skill is invoked:
 
 3. **Write to `docs/`** directory.
 
-4. **Suggest**: `/create-readme` for a polished README.
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /generate-docs — [YYYY-MM-DD HH:MM]
+     - Action: generated [type] docs in docs/
+     - Recommended next: /create-readme
+     ```
+   - Render the handoff block with:
+     - `/create-readme` — polish the top-level README *(recommended)*
+     - `/create-changelog` — document recent changes
+     - `/code-review docs/` — review the generated docs for accuracy
+     - `/deploy` — ship the docs if you have a docs site
+     - `@technical-writer` — improve doc structure and examples

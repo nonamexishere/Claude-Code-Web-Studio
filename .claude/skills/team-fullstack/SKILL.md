@@ -47,7 +47,17 @@ When this skill is invoked:
 
 4. **Present a summary** of what was built, with file list and next steps.
 
-5. **After completion**, suggest:
-   - `/code-review` for a thorough review
-   - `/audit-security` for security verification
-   - `/sprint-plan` to plan next features
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /team-fullstack — [YYYY-MM-DD HH:MM]
+     - Action: built [feature-name] end-to-end (db→backend→frontend→tests)
+     - Recommended next: /code-review
+     ```
+   - Render the handoff block with:
+     - `/code-review` — thorough review across all layers *(recommended)*
+     - `/audit-security` — security verification for the new surface
+     - `/sprint-plan` — plan the next feature
+     - `/audit-performance` — measure end-to-end latency
+     - `@tech-lead` — sign off on the feature

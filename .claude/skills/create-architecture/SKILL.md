@@ -3,7 +3,7 @@ name: create-architecture
 description: "Produce full system architecture: frontend, backend, database, infrastructure, and data flow. Generates architecture document with Mermaid diagrams."
 argument-hint: "[focus area, e.g. 'microservices' or 'serverless']"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebSearch, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebSearch, AskUserQuestion, Task
 ---
 
 When this skill is invoked:
@@ -63,7 +63,17 @@ When this skill is invoked:
 
 5. **Create ADR template** at `docs/adr/001-initial-architecture.md`.
 
-6. **Suggest next steps**:
-   - `/design-api` to define API contracts
-   - `/design-database` to model data in detail
-   - `/start` to scaffold the project
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-architecture — [YYYY-MM-DD HH:MM]
+     - Action: wrote docs/architecture.md + ADR
+     - Recommended next: /design-database
+     ```
+   - Render the handoff block with:
+     - `/design-database` — model the data this architecture implies *(recommended)*
+     - `/design-api` — define API contracts between layers
+     - `/setup-routing` — wire up the frontend routing
+     - `/sprint-plan` — turn the architecture into sprint tasks
+     - `@project-architect` — challenge any architectural choice

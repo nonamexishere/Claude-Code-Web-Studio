@@ -41,6 +41,17 @@ When this skill is invoked:
    - `docker:build` — build production image
    - `docker:prod` — run production locally
 
-6. **Suggest next steps**:
-   - `/setup-cicd` to automate builds and deployments
-   - `/deploy` to configure cloud deployment
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-docker — [YYYY-MM-DD HH:MM]
+     - Action: generated Dockerfile + docker-compose ([target])
+     - Recommended next: /setup-cicd
+     ```
+   - Render the handoff block with:
+     - `/setup-cicd` — automate builds and deployments *(recommended)*
+     - `/deploy` — configure cloud deployment
+     - `/audit-security` — scan image for vulnerabilities
+     - `/setup-monitoring` — add container-aware monitoring
+     - `@devops-lead` — discuss image hardening and registry strategy

@@ -51,7 +51,17 @@ When this skill is invoked:
 
 5. **Dark mode toggle component** (if user toggle selected).
 
-6. **Suggest next steps**:
-   1. "Run `/create-component` to build themed components"
-   2. "Talk to `@tailwind-specialist` for advanced Tailwind patterns"
-   3. "Talk to `@ui-developer` for design system expansion"
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-theme — [YYYY-MM-DD HH:MM]
+     - Action: configured design system ([style], [colors], dark=[mode])
+     - Recommended next: /create-component
+     ```
+   - Render the handoff block with:
+     - `/create-component` — build the first themed component *(recommended)*
+     - `/create-page` — build a page using the new theme
+     - `/audit-accessibility` — verify contrast and typography ratios
+     - `@ui-developer` — expand the design system (tokens, patterns)
+     - `@tailwind-specialist` — advanced Tailwind tweaks (if applicable)

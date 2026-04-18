@@ -3,7 +3,7 @@ name: design-database
 description: "Design database schema with tables/collections, relations, indexes, and migration plan."
 argument-hint: "[database type, e.g. 'postgresql' or 'mongodb']"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash, AskUserQuestion, Task
 ---
 
 When this skill is invoked:
@@ -42,6 +42,17 @@ When this skill is invoked:
 
 6. **Generate initial migration** or schema file based on the chosen ORM.
 
-7. **Suggest next steps**:
-   - `/create-model [table]` to generate ORM models
-   - `/create-endpoint [resource]` to build APIs on top of the data
+7. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /design-database — [YYYY-MM-DD HH:MM]
+     - Action: wrote design/database-schema.md + initial migration
+     - Recommended next: /create-migration
+     ```
+   - Render the handoff block with:
+     - `/create-migration` — scaffold the initial migration file *(recommended)*
+     - `/create-model [table]` — generate ORM models from the schema
+     - `/design-api` — design API on top of this data
+     - `/create-endpoint [resource]` — build a first endpoint against the data
+     - `@database-lead` — review schema and indexing choices

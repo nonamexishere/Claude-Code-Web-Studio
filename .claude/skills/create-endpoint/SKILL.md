@@ -32,6 +32,19 @@ When this skill is invoked:
    - **FastAPI**: Router + Pydantic model + dependency injection
    - **Django**: View + Serializer + URL conf
 
-5. **Report what was created** and suggest:
-   - `/write-tests` to test the endpoint
-   - `/create-model` if a new data model is needed
+5. **Report what was created.**
+
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-endpoint — [YYYY-MM-DD HH:MM]
+     - Action: scaffolded [METHOD path] with validation + handler
+     - Recommended next: /write-tests
+     ```
+   - Render the handoff block with:
+     - `/write-tests [endpoint-path]` — cover the endpoint before moving on *(recommended)*
+     - `/create-model` — add the data model this endpoint needs
+     - `/create-page` — build the UI that calls this endpoint
+     - `/code-review src/[endpoint-path]` — review what you just wrote
+     - `@backend-lead` — discuss error handling or auth choices

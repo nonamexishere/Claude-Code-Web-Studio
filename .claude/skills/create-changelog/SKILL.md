@@ -39,6 +39,17 @@ When this skill is invoked:
 
 4. **Write to** `CHANGELOG.md` (append to top).
 
-5. **Suggest next steps**:
-   1. "Run `/build` to create production build"
-   2. "Run `/deploy` to deploy the release"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-changelog — [YYYY-MM-DD HH:MM]
+     - Action: appended [version] to CHANGELOG.md
+     - Recommended next: /build
+     ```
+   - Render the handoff block with:
+     - `/build` — create the production build for this release *(recommended)*
+     - `/deploy` — ship the release to production
+     - `/create-readme` — refresh README badges and version
+     - `/audit-security` — last security check before release
+     - `@tech-lead` — review release notes and breaking changes

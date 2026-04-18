@@ -3,7 +3,7 @@ name: deploy
 description: "Generate deployment configuration for Vercel, AWS, Railway, Fly.io, or Docker."
 argument-hint: "<platform: vercel|aws|railway|fly|docker>"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebSearch, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebSearch, AskUserQuestion, Task
 ---
 
 When this skill is invoked:
@@ -35,4 +35,17 @@ When this skill is invoked:
    - [ ] Error tracking configured (Sentry)
    - [ ] Monitoring enabled
 
-5. **Suggest**: `/setup-cicd` for automated deployments
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /deploy — [YYYY-MM-DD HH:MM]
+     - Action: generated [platform] deployment config
+     - Recommended next: /setup-cicd
+     ```
+   - Render the handoff block with:
+     - `/setup-cicd` — automate future deployments *(recommended)*
+     - `/setup-monitoring` — wire error tracking before traffic
+     - `/audit-security` — final security check before going live
+     - `/setup-docker` — containerize if not already
+     - `@devops-lead` — review rollback plan and SLOs

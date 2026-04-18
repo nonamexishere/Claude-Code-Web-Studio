@@ -126,7 +126,25 @@ When this skill is invoked:
    6. RELEASE    /setup-cicd → /build → /deploy
    ```
 
-7. **Always end with a reminder**:
+7. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   Render the handoff block using the 3 contextual suggestions from step 5 as numbered options (option 1 = recommended). Append escape hatches (Stop, Chat). No breadcrumb write for `/help` — it's a read-only dashboard.
+
+   Example block for "building features but no tests":
+   ```
+   ### Status
+   - Current MVP: {{from .claude/session/mvp.md or "not set"}}
+   - Progress: 12 source files / 0 tests
+
+   ### What's next?
+   1. **/write-tests src/** — you have 12 source files but 0 tests *(recommended)*
+   2. **/code-review src/** — review what you've built so far
+   3. **/create-endpoint** — if you need more API endpoints
+   4. **Stop here** — end session
+   5. **Chat about this** — ask a question or discuss tradeoffs
+   ```
+
+8. **Always end with a reminder**:
    ```
    Type /help anytime to see this again.
    Type / to see all available commands.

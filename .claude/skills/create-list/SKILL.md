@@ -46,6 +46,17 @@ When this skill is invoked:
    - Filter/search state management
    - Test file
 
-5. **Suggest next steps**:
-   1. "Run `/create-endpoint` for the paginated API"
-   2. "Run `/create-component` for list item design"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-list — [YYYY-MM-DD HH:MM]
+     - Action: scaffolded [list-name] as [type] with [features]
+     - Recommended next: /create-endpoint
+     ```
+   - Render the handoff block with:
+     - `/create-endpoint` — build the paginated API this list consumes *(recommended)*
+     - `/create-component` — extract row/card components
+     - `/write-tests` — cover pagination, sort, filter edge cases
+     - `/audit-performance` — check render perf with large datasets
+     - `@frontend-lead` — discuss list UX tradeoffs

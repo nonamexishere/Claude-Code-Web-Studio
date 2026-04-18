@@ -40,6 +40,17 @@ When this skill is invoked:
 
 4. **Write configuration** and integration files.
 
-5. **Suggest next steps**:
-   1. "Run `/setup-cicd` to automate source map uploads"
-   2. "Run `/audit-performance` to establish performance baseline"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-monitoring — [YYYY-MM-DD HH:MM]
+     - Action: wired [provider] for [features]
+     - Recommended next: /setup-cicd
+     ```
+   - Render the handoff block with:
+     - `/setup-cicd` — automate source map uploads on deploy *(recommended)*
+     - `/audit-performance` — establish a performance baseline
+     - `/setup-analytics` — pair error data with user event data
+     - `/write-tests` — add tests that exercise error paths
+     - `@devops-lead` — discuss alerting thresholds and on-call policy

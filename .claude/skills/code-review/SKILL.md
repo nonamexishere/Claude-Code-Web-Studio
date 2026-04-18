@@ -53,3 +53,17 @@ When this skill is invoked:
    - Total issues by severity
    - Overall code quality rating (1-10)
    - Top 3 priorities to fix
+
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /code-review — [YYYY-MM-DD HH:MM]
+     - Action: reviewed [path], found [X critical / Y warnings]
+     - Recommended next: [depends on findings]
+     ```
+   - Render the handoff block. Pick the recommended option based on findings:
+     - If critical issues: recommend fixing them now, offer `@tech-lead` for tricky ones
+     - If warnings only: recommend `/write-tests` for coverage gaps
+     - If clean: recommend next feature from `/sprint-plan` or next story
+   - Always include: `/write-tests`, `/audit-security`, `/audit-performance`, `/sprint-plan`

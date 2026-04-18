@@ -44,6 +44,17 @@ When this skill is invoked:
 
 3. **Write files** to `src/storage/` or `src/lib/storage/`.
 
-4. **Suggest next steps**:
-   1. "Run `/create-component FileUpload` for the upload UI"
-   2. "Run `/setup-cicd` to configure CDN and storage deployment"
+4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-storage — [YYYY-MM-DD HH:MM]
+     - Action: wired [provider] storage for [file types]
+     - Recommended next: /create-component FileUpload
+     ```
+   - Render the handoff block with:
+     - `/create-component FileUpload` — build the upload UI *(recommended)*
+     - `/setup-cicd` — configure CDN and storage deployment
+     - `/create-endpoint` — expose signed-URL endpoints
+     - `/audit-security` — verify file type validation and access control
+     - `@cloud-specialist` — discuss CDN caching and lifecycle policies

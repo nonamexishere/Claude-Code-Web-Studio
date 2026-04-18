@@ -31,6 +31,19 @@ When this skill is invoked:
    - **Nuxt**: `pages/name.vue` with `definePageMeta`
    - **Angular**: Component + route config + lazy module
 
-5. **Report what was created** and suggest:
-   - `/create-component` for page-specific components
-   - `/create-form` if the page needs forms
+5. **Report what was created.**
+
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /create-page — [YYYY-MM-DD HH:MM]
+     - Action: scaffolded [page-name] with layout/loading/error
+     - Recommended next: /create-component
+     ```
+   - Render the handoff block with:
+     - `/create-component` — build the page-specific components it needs *(recommended)*
+     - `/create-form` — add forms if the page needs them
+     - `/create-endpoint` — scaffold the API this page calls
+     - `/code-review src/[page-path]` — review before moving on
+     - `@frontend-lead` — discuss UX or state tradeoffs

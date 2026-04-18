@@ -53,6 +53,17 @@ When this skill is invoked:
    - Breadcrumb component
    - 404 page
 
-5. **Suggest next steps**:
-   1. "Run `/create-page` to add pages to routes"
-   2. "Run `/setup-auth` to implement auth-protected routes"
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /setup-routing — [YYYY-MM-DD HH:MM]
+     - Action: configured [pattern] routing with [features]
+     - Recommended next: /create-page
+     ```
+   - Render the handoff block with:
+     - `/create-page` — add the first real page to your routes *(recommended)*
+     - `/setup-auth` — implement auth-protected routes
+     - `/setup-theme` — lock the design system before building pages
+     - `/create-component Breadcrumbs` — build shared nav UI
+     - `@frontend-lead` — discuss route organization

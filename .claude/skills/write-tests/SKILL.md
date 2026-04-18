@@ -47,4 +47,17 @@ When this skill is invoked:
 
 5. **Run the tests** and report results.
 
-6. **Suggest**: `/code-review` to review the tested code.
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+
+   - Append breadcrumb to `.claude/session/active.md`:
+     ```
+     ## /write-tests — [YYYY-MM-DD HH:MM]
+     - Action: added [type] tests for [target]
+     - Recommended next: /code-review
+     ```
+   - Render the handoff block with:
+     - `/code-review [target]` — review the code you just covered *(recommended)*
+     - `/audit-security` — if tests surface untrusted-input paths
+     - `/audit-performance` — if tests reveal slow paths
+     - `/sprint-plan` — pick the next task now that this is green
+     - `@qa-lead` — discuss test strategy or coverage gaps
