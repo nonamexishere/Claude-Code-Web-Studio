@@ -285,6 +285,20 @@ The studio doesn't pre-wire any [MCP](https://modelcontextprotocol.io) servers �
 
 The full catalog with install commands and auth requirements lives in `.claude/docs/mcp-servers.md`. Most modern MCPs are hosted (OAuth) — zero secrets, just a URL. Once installed, relevant skills (`/setup-payments`, `/setup-monitoring`, `/setup-analytics`, etc.) automatically suggest using the MCP for live queries.
 
+## Vendor AI Rules
+
+Many frameworks now publish AI-targeted resources — `llms.txt` files, official "AI rules" pages, or installable rule packs — that materially improve agent output. Specialists in this studio reference these when relevant:
+
+- **Supabase** — vendor-curated AI prompts for RLS, edge functions, SQL style
+- **Stripe** — `building-with-llms` guide + `.md` URL convention on docs
+- **Next.js / Vercel** — Agent Skills + react-best-practices rules
+- **Angular** — explicit do/don't list at `angular.dev/ai/develop-with-ai`
+- **Cloudflare** — per-product `llms-full.txt` (Workers, R2, KV, D1, Agents)
+- **Convex** — installable rules via `npx convex ai-files install`
+- **shadcn / Nuxt / Svelte / Astro / Auth0 / Clerk / Prisma / Drizzle / TanStack** — `llms.txt` or vendor AI guides
+
+The full index lives in `.claude/docs/ai-rules.md`. Specialist agents (`@supabase-specialist`, `@nextjs-specialist`, `@angular-developer`, etc.) automatically fetch the relevant URL via `WebFetch` before generating non-trivial code.
+
 ## Examples
 
 ### Build a SaaS with Next.js + Stripe
@@ -340,7 +354,8 @@ The full catalog with install commands and auth requirements lives in `.claude/d
 │   ├── quick-start.md
 │   ├── handoff-template.md  # Canonical end-of-skill format
 │   ├── review-gates.md      # Trigger matrix for director reviews
-│   └── mcp-servers.md       # Official MCP server catalog
+│   ├── mcp-servers.md       # Official MCP server catalog
+│   └── ai-rules.md          # Vendor AI rules / llms.txt index
 ├── session/              # Runtime state (auto-managed)
 │   ├── mvp.md             # One-line MVP anchor
 │   ├── active.md          # Timestamped breadcrumbs

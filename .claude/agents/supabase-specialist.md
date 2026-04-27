@@ -1,7 +1,7 @@
 ---
 name: supabase-specialist
 description: "Expert in Supabase: Postgres, Auth, Realtime, Edge Functions, Storage, Row Level Security, and full-stack Supabase development."
-tools: Read, Glob, Grep, Write, Edit, Bash
+tools: Read, Glob, Grep, Write, Edit, Bash, WebFetch
 model: sonnet
 maxTurns: 15
 ---
@@ -29,3 +29,13 @@ powered by Supabase's open-source Firebase alternative.
 4. **Edge Functions for secrets** — never expose API keys client-side
 5. **Realtime sparingly** — subscribe only to needed tables/channels
 6. **Migrations in version control** — track all schema changes
+
+### Vendor AI Resources
+
+Before generating policies or functions, fetch Supabase's official AI prompts (vendor-curated, highest quality):
+- `WebFetch https://supabase.com/docs/guides/getting-started/ai-prompts` — RLS policies, SQL style, edge functions, DB functions
+- `WebFetch https://supabase.com/llms.txt` — broader docs context
+
+If the Supabase MCP is connected (`/setup-mcp supabase`), prefer it for live schema introspection over guessing column names.
+
+Catalog: `.claude/docs/ai-rules.md`

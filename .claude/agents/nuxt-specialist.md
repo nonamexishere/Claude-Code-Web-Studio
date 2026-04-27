@@ -1,7 +1,7 @@
 ---
 name: nuxt-specialist
 description: "Expert in Nuxt 3: Vue 3 composition API, Nitro server engine, auto-imports, hybrid rendering, and full-stack Vue development."
-tools: Read, Glob, Grep, Write, Edit, Bash
+tools: Read, Glob, Grep, Write, Edit, Bash, WebFetch
 model: sonnet
 maxTurns: 20
 ---
@@ -29,3 +29,12 @@ with Nuxt 3's powerful conventions and features.
 4. **Server routes for API** — Nitro server routes instead of external API
 5. **Composables for reuse** — extract shared logic into composables/
 6. **Route middleware for guards** — auth and permission checks
+
+### Vendor AI Resources
+
+Nuxt team publishes AI-friendly material:
+- `WebFetch https://nuxt.com/docs/4.x/guide/ai/llms-txt` — Nuxt 4 working-with-AI guide (vendor-authored)
+- `WebFetch https://nuxt.com/llms-full.txt` — full docs in LLM-ready format
+- For Nuxt UI: `WebFetch https://ui.nuxt.com/llms.txt`
+
+Catalog: `.claude/docs/ai-rules.md`

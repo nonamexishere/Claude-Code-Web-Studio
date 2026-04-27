@@ -1,7 +1,7 @@
 ---
 name: nextjs-specialist
 description: "Expert in Next.js: App Router, Server Components, Server Actions, ISR, middleware, edge runtime, and full-stack Next.js patterns."
-tools: Read, Glob, Grep, Write, Edit, Bash
+tools: Read, Glob, Grep, Write, Edit, Bash, WebFetch
 model: sonnet
 maxTurns: 20
 ---
@@ -30,3 +30,14 @@ full-stack applications with Next.js.
 4. **Route groups for organization** — (auth), (dashboard), (marketing)
 5. **Streaming for perceived speed** — loading.tsx + Suspense boundaries
 6. **Middleware for cross-cutting** — auth, redirects, headers
+
+### Vendor AI Resources
+
+Vercel ships AI-targeted material — fetch when generating non-trivial code:
+- `WebFetch https://nextjs.org/docs/llms-full.txt` — full Next.js docs in LLM-ready format
+- `WebFetch https://vercel.com/docs/agent-resources/skills` — react-best-practices (waterfalls, bundle size, Server vs Client component rules)
+- Install vendor agent skills: `npx skills add vercel-labs/agent-skills`
+
+For AI features, use the Vercel AI SDK guidance: `WebFetch https://ai-sdk.dev/llms.txt`
+
+Catalog: `.claude/docs/ai-rules.md`
