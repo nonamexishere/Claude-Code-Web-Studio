@@ -85,6 +85,15 @@ web development agency:
 /deploy vercel
 ```
 
+### Vendor MCP Integration
+```
+/setup-mcp stripe              # Stripe MCP for live products/customers
+/setup-mcp sentry              # Sentry MCP for issues and releases
+/setup-mcp supabase            # Supabase MCP for DB queries / Edge Functions
+/setup-mcp github              # GitHub MCP for PRs, issues, Actions
+```
+Catalog: `.claude/docs/mcp-servers.md`
+
 ### Get Help
 ```
 /help

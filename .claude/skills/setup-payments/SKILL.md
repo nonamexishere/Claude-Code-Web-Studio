@@ -50,7 +50,9 @@ When this skill is invoked:
    - No client-side price manipulation
    - PCI compliance (use hosted checkout)
 
-4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+4. **MCP shortcut**: If the Stripe MCP is connected (via `/setup-mcp stripe`), query live products/prices, inspect customers, and replay webhook events directly instead of jumping to the dashboard. See `.claude/docs/mcp-servers.md`.
+
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
 
    - Append breadcrumb to `.claude/session/active.md`:
      ```

@@ -13,8 +13,9 @@ This is **not** a web application. It's a **configuration layer** for Claude Cod
 When you open Claude Code in this directory, you get access to:
 
 - **51 AI agents** organized in a 3-tier studio hierarchy
-- **49 slash commands** (skills) covering the full development lifecycle
+- **50 slash commands** (skills) covering the full development lifecycle
 - **Automated hooks** for commit validation and code quality checks
+- **MCP catalog** of officially-published vendor servers (Stripe, Sentry, Supabase, GitHub, etc.)
 - **Docs & templates** for architecture, APIs, databases, and more
 
 ## Supported Technologies
@@ -153,7 +154,7 @@ Once inside Claude Code:
 |-------|-----------|
 | `@technical-writer` | README, API docs, guides |
 
-## Available Skills (49 Commands)
+## Available Skills (50 Commands)
 
 ### Setup & Planning
 | Command | Description |
@@ -236,6 +237,11 @@ Once inside Claude Code:
 | `/team-feature` | Orchestrate full feature build |
 | `/team-fullstack` | Full-stack feature: design → build → test |
 
+### Integrations
+| Command | Description |
+|---------|-------------|
+| `/setup-mcp` | Install an officially-published MCP server (Stripe, Sentry, Supabase, GitHub, Vercel, etc.) |
+
 ## Typical Workflow
 
 ```
@@ -263,6 +269,21 @@ The studio is designed to feel like a guided game — you're never left staring 
   - `full` — directors review after every meaningful skill
 
 At phase-boundary skills, the designated director (project-architect, tech-lead, or product-owner) is auto-spawned to review before the handoff. See `.claude/docs/review-gates.md` for the full trigger matrix.
+
+## MCP Integration (Optional)
+
+The studio doesn't pre-wire any [MCP](https://modelcontextprotocol.io) servers — that would force Stripe / Supabase / Sentry accounts on everyone. Instead, install only what you use:
+
+```
+/setup-mcp stripe          # Stripe — payments, customers, products
+/setup-mcp sentry          # Sentry — issues, releases, AI debugging
+/setup-mcp supabase        # Supabase — DB queries, Edge Functions
+/setup-mcp github          # GitHub — repos, PRs, issues, Actions
+/setup-mcp vercel          # Vercel — projects, deployments
+/setup-mcp linear          # Linear — issues, projects
+```
+
+The full catalog with install commands and auth requirements lives in `.claude/docs/mcp-servers.md`. Most modern MCPs are hosted (OAuth) — zero secrets, just a URL. Once installed, relevant skills (`/setup-payments`, `/setup-monitoring`, `/setup-analytics`, etc.) automatically suggest using the MCP for live queries.
 
 ## Examples
 
@@ -318,7 +339,8 @@ At phase-boundary skills, the designated director (project-architect, tech-lead,
 │   ├── agent-roster.md
 │   ├── quick-start.md
 │   ├── handoff-template.md  # Canonical end-of-skill format
-│   └── review-gates.md      # Trigger matrix for director reviews
+│   ├── review-gates.md      # Trigger matrix for director reviews
+│   └── mcp-servers.md       # Official MCP server catalog
 ├── session/              # Runtime state (auto-managed)
 │   ├── mvp.md             # One-line MVP anchor
 │   ├── active.md          # Timestamped breadcrumbs

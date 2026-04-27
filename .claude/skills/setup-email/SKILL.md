@@ -38,7 +38,9 @@ When this skill is invoked:
 
 3. **Write files** to `src/email/` or `src/lib/email/`.
 
-4. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+4. **MCP shortcut**: If the Resend MCP is connected (via `/setup-mcp resend`), send test emails, manage domains/contacts, and inspect deliverability directly. See `.claude/docs/mcp-servers.md`.
+
+5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
 
    - Append breadcrumb to `.claude/session/active.md`:
      ```

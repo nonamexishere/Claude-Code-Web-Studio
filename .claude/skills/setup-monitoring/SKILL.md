@@ -40,7 +40,9 @@ When this skill is invoked:
 
 4. **Write configuration** and integration files.
 
-5. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
+5. **MCP shortcut**: If the Sentry MCP is connected (via `/setup-mcp sentry`), query issues, releases, and source-map upload status directly instead of opening the dashboard. See `.claude/docs/mcp-servers.md`.
+
+6. **Final step — handoff.** Follow `.claude/docs/handoff-template.md`.
 
    - Append breadcrumb to `.claude/session/active.md`:
      ```
