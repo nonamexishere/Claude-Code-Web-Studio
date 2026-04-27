@@ -1,6 +1,13 @@
 ---
 name: help
-description: "Show project status, available commands, where you left off, and what to do next. Your guide through the studio."
+description: |
+  Show project status, available commands, where the user left off, and
+  what to do next. The studio's guide.
+when_to_use: |
+  USE WHEN the user is lost, asks "what can I do / what commands exist /
+  where am I / I forgot what we were doing / what's next", or wants a tour
+  of agents/skills/workflows. Always preferred over generic chat answers
+  about studio capabilities.
 argument-hint: "[topic: agents|skills|workflow]"
 user-invocable: true
 allowed-tools: Read, Glob, Grep, Bash

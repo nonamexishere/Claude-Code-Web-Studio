@@ -3,6 +3,7 @@ name: build
 description: "Build the web application for production. Analyzes bundle size, optimizes assets, and verifies the build output."
 argument-hint: "[target: dev|staging|production]"
 user-invocable: true
+disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash, AskUserQuestion, Task
 ---
 

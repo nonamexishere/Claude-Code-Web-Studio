@@ -1,6 +1,14 @@
 ---
 name: brainstorm
-description: "Guided product ideation — from a rough idea to a structured product specification. Uses professional product thinking frameworks."
+description: |
+  Guided product ideation — from a rough idea to a structured product
+  specification. Uses professional product thinking frameworks (jobs-to-be-done,
+  competitor analysis, MVP scoping).
+when_to_use: |
+  USE WHEN the user has a vague app/SaaS idea but isn't sure what to build
+  first, asks "what should I make / help me think this through / I have an
+  idea but...", or wants to validate an idea before architecture. Also use
+  when the project has no MVP anchor yet (`.claude/session/mvp.md` empty).
 argument-hint: "[idea or topic, or 'open']"
 user-invocable: true
 allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, AskUserQuestion, Task

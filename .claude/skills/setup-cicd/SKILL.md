@@ -3,6 +3,7 @@ name: setup-cicd
 description: "Set up CI/CD pipeline for the web app: GitHub Actions, GitLab CI, or platform-native (Vercel, Netlify) with tests, build, and deploy stages."
 argument-hint: "[provider: github-actions|gitlab|circleci|vercel|netlify]"
 user-invocable: true
+disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash, AskUserQuestion
 ---
 

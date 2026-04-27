@@ -13,10 +13,12 @@ This is **not** a web application. It's a **configuration layer** for Claude Cod
 When you open Claude Code in this directory, you get access to:
 
 - **51 AI agents** organized in a 3-tier studio hierarchy
-- **50 slash commands** (skills) covering the full development lifecycle
+- **54 slash commands** (skills) covering the full development lifecycle
 - **Automated hooks** for commit validation and code quality checks
 - **MCP catalog** of officially-published vendor servers (Stripe, Sentry, Supabase, GitHub, etc.)
+- **Vendor AI rules** index linking framework `llms.txt` and AI guidance pages
 - **Docs & templates** for architecture, APIs, databases, and more
+- Installable as a Claude Code **plugin** via `/plugin`
 
 ## Supported Technologies
 
@@ -40,14 +42,24 @@ That's it. No npm install, no dependencies, no build step.
 
 ## Quick Start
 
+### Option 1 — Clone
+
 ```bash
-# 1. Clone the repo
 git clone https://github.com/nonamexishere/Claude-Code-Web-Studio.git my-project
 cd my-project
-
-# 2. Open Claude Code
 claude
 ```
+
+### Option 2 — Install as a plugin (experimental)
+
+Inside Claude Code:
+
+```
+/plugin marketplace add nonamexishere/Claude-Code-Web-Studio
+/plugin install web-studio@claude-code-web-studio
+```
+
+The studio bundles its agents, skills, and hooks via `.claude-plugin/marketplace.json` so you don't have to clone the whole repo.
 
 Once inside Claude Code:
 
@@ -154,7 +166,7 @@ Once inside Claude Code:
 |-------|-----------|
 | `@technical-writer` | README, API docs, guides |
 
-## Available Skills (50 Commands)
+## Available Skills (54 Commands)
 
 ### Setup & Planning
 | Command | Description |
@@ -241,6 +253,14 @@ Once inside Claude Code:
 | Command | Description |
 |---------|-------------|
 | `/setup-mcp` | Install an officially-published MCP server (Stripe, Sentry, Supabase, GitHub, Vercel, etc.) |
+| `/mcp-builder` | Build a custom MCP server for your own API or internal service |
+| `/claude-api` | Wire Claude API features into the app (chat, tool use, prompt caching, streaming) |
+
+### Meta & Iteration
+| Command | Description |
+|---------|-------------|
+| `/skill-creator` | Bootstrap a new skill in this studio with proper frontmatter and handoff |
+| `/refine-loop` | Iterative critic-loop pattern — runs a critic agent until output is approved |
 
 ## Typical Workflow
 

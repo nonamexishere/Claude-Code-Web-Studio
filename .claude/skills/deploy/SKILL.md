@@ -3,6 +3,7 @@ name: deploy
 description: "Generate deployment configuration for Vercel, AWS, Railway, Fly.io, or Docker."
 argument-hint: "<platform: vercel|aws|railway|fly|docker>"
 user-invocable: true
+disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebSearch, AskUserQuestion, Task
 ---
 

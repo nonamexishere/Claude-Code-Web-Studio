@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-marketplace.json",
+  "name": "claude-code-web-studio",
+  "version": "1.0.0",
+  "description": "AI-powered virtual web development studio — 51 agents + 54 skills for Claude Code",
+  "owner": {
+    "name": "nonamexishere",
+    "url": "https://github.com/nonamexishere"
+  },
+  "homepage": "https://github.com/nonamexishere/Claude-Code-Web-Studio",
+  "repository": "https://github.com/nonamexishere/Claude-Code-Web-Studio",
+  "plugins": [
+    {
+      "name": "web-studio",
+      "source": ".",
+      "version": "1.0.0",
+      "description": "Full web development studio: 3-tier agent hierarchy (directors/leads/specialists) + 54 workflow skills covering planning, architecture, implementation, testing, and deployment.",
+      "category": "framework",
+      "tags": ["web", "fullstack", "react", "nextjs", "vue", "svelte", "astro", "supabase", "studio"],
+      "agents": "agents/",
+      "skills": "skills/",
+      "hooks": "hooks/",
+      "license": "MIT"
+    }
+  ]
+}
